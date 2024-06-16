@@ -16,6 +16,7 @@ namespace HangMan
     public partial class Form2 : Form
     {
         //title could have been way worse
+        string[] wordPool = { "HELLO", "ALIISCOOL", "BYEEE" }; // Add your predetermined words here
         string word; 
         char[] letters;
         int lives = 7; //head, body, arm1, arm2, leg1, leg2, face. 
@@ -28,16 +29,21 @@ namespace HangMan
         SoundPlayer defeat = new SoundPlayer(Properties.Resources.failfare_86009);
 
 
-        public Form2(string w)
+        public Form2()
         {
             InitializeComponent();
-            word = w.ToUpper();
+            word = SelectRandomWord().ToUpper();
             letters = word.ToCharArray();
             showdashes();
 
             
         }
-
+        private string SelectRandomWord()
+        {
+            Random random = new Random();
+            int randomIndex = random.Next(0, wordPool.Length);
+            return wordPool[randomIndex];
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
           

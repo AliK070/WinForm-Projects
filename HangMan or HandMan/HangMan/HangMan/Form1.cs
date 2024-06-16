@@ -22,9 +22,7 @@ namespace HangMan
             string word = txtWord.Text;
             if (word.Length == 5 || word.Length == 6 || word.Length == 7 || word.Length == 8)
             {
-                Form2 main = new Form2(word);
-                main.Show(); 
-                this.Hide();
+             
             }
             else
             {
